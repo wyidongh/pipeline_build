@@ -44,4 +44,19 @@ EOF
             }
         }
     }
+
+       stage('Trigger Test Pipeline') {
+	    steps {
+		script {
+		    build job: 'pipeline_test',
+			parameters: [
+			    string(name: 'IMAGE', value: "${IMAGE_NAME}:${VERSION}")
+			],
+			wait: true,   // 等 B 跑完
+			propagate: true // B 失败则 A 失败
+		}
+
+	    }
+
+	}
 }
