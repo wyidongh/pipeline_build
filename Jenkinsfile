@@ -43,7 +43,6 @@ EOF
                 archiveArtifacts artifacts: 'image.txt'
             }
         }
-    }
 
        stage('Trigger Test Pipeline') {
 	    steps {
@@ -59,4 +58,5 @@ EOF
 	    }
 
 	}
+   }
 }
